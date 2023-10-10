@@ -84,11 +84,11 @@ botonALogin3.addEventListener('click', () => {
     seccionLogin.style.display="flex";
 });
 
-botonRegistrarDandoAdopcion.addEventListener('click', () => {
-    alert("¡Registro Exitoso! \n Bienvenido a la comunidad Mewoof");
-    seccionRegister.style.display="none";
-    seccionLogin.style.display="flex"
-});
+// botonRegistrarDandoAdopcion.addEventListener('click', () => {
+//     alert("¡Registro Exitoso! \n Bienvenido a la comunidad Mewoof");
+//     seccionRegister.style.display="none";
+//     seccionLogin.style.display="flex"
+// });
 
 // BOTONES LOGIN PARTE 4 - USUARIO ADOPTANDO
 
@@ -110,11 +110,11 @@ botonALogin4.addEventListener('click', () => {
     seccionLogin.style.display="flex";
 });
 
-botonRegistrarAdoptante.addEventListener('click', () => {
-    alert("¡Registro Exitoso! \n Bienvenido a la comunidad Mewoof");
-    seccionRegister2.style.display="none";
-    seccionLogin.style.display="flex"
-});
+// botonRegistrarAdoptante.addEventListener('click', () => {
+//     alert("¡Registro Exitoso! \n Bienvenido a la comunidad Mewoof");
+//     seccionRegister2.style.display="none";
+//     seccionLogin.style.display="flex"
+// });
 
 
 
@@ -268,3 +268,145 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 // FIN SECCIÓN CONSTÁCTENOS
+
+const enviarBotonRegister = document.getElementById("mw-registerButtonDandoAdopcion");
+
+
+enviarBotonRegister.addEventListener('click', function(event) {
+    //Declaro las variables que usaremos para validacion
+    //Modificar esto porque ya se encuentra en el docuemnto
+    const mwRegisterNombre= document.getElementById("mw_registerNombre");
+    const mwRegisterApellido = document.getElementById("mw_registerApellido");
+    const mwRegisterPais = document.getElementById("mw_registerPais");
+    const mwRegisterCiudad = document.getElementById("mw_registerCiudad");
+    const mwRegisterCel = document.getElementById("mw_registerCel");
+    const mwRegisterEmail = document.getElementById("mw_registerMail");
+    const mwRegisterPassword = document.getElementById("mw_registerPassword");
+    const mwRegisterPasswordConfirm = document.getElementById("mw_registerPasswordConfirm");
+
+    
+
+    function validacionRegister(HTMLElement){
+        const fnNodeHtml = HTMLElement;
+        // let nombreValido = false;
+        // let mailValido = false;
+        if(fnNodeHtml.id === "mw_registerNombre"){
+            const registerNombre = fnNodeHtml.value.trim();
+            const regexNombre = /^([A-z]{2,15})\s?(([A-z]{2,15}))?$/;
+            let nombreValido = regexNombre.test(registerNombre);
+
+            if(!nombreValido){
+                const parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
+                if(!parrafoNombreExistencia){
+                    creacionAlertaRegister();
+                }
+            } else{
+                const parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
+                if(parrafoNombreExistencia != null){
+                const padreParrafoNombre = parrafoNombreExistencia.parentNode;
+                padreParrafoNombre.removeChild(parrafoNombreExistencia);
+            }
+            }
+
+            
+        } else if(fnNodeHtml.id === "mw_registerApellido"){
+            const registerApellido = fnNodeHtml.value.trim();
+            const regexApellido = /^([A-z]{2,15})\s?(([A-z]{2,15}))?$/;
+            let apellidoValido = regexApellido.test(registerApellido);
+
+            if(!apellidoValido){
+                const parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
+                if(!parrafoNombreExistencia){
+                    creacionAlertaRegister();
+                }
+            } else{
+                const parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
+                if(parrafoNombreExistencia != null){
+                const padreParrafoNombre = parrafoNombreExistencia.parentNode;
+                padreParrafoNombre.removeChild(parrafoNombreExistencia);}
+            }
+        } else if(fnNodeHtml.id === "mw_registerPais"){
+
+        } else if(fnNodeHtml.id === "mw_registerCiudad"){
+
+        } else if(fnNodeHtml.id === "mw_registerCel"){
+            const registerCel = fnNodeHtml.value.trim();
+            const regexCel = /^\d+/;
+            let celValido = regexCel.test(registerCel)
+            console.log(celValido)
+        } else if(fnNodeHtml.id === "mw_registerMail"){
+            const registerMail = fnNodeHtml.value.trim();
+            const regexMail = /^[\w_]{1,30}(\.?\+?[\w]{5,10})?@[\w]{2,10}\.\w{2,5}$/;
+            let mailValido = regexMail.test(registerMail);
+            let parrafoNombreExistencia = document.getElementById(`"${fnNodeHtml.id}-alert"`);
+            console.log(parrafoNombreExistencia)
+            console.log(mailValido)
+
+            if(!mailValido){
+                alert("llegue")
+                
+                console.log(parrafoNombreExistencia)
+                if(!parrafoNombreExistencia){
+                    creacionAlertaRegister();
+                }
+            }else {
+                if(parrafoNombreExistencia != null){
+
+                    alert("llegue else")
+                // const parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
+                const padreParrafoNombre = parrafoNombreExistencia.parentNode;
+                padreParrafoNombre.removeChild(parrafoNombreExistencia);
+                }
+                    
+            }
+        }
+ 
+         else if(fnNodeHtml.id === "mw_registerPassword"){
+
+        } else if(fnNodeHtml.id === "mw_registerPasswordConfirm"){
+
+        }
+        
+
+        function creacionAlertaRegister(){
+            const padreParrafoNombre = fnNodeHtml.parentNode;
+            // const padreParrafoNombre = document.getElementById("registerNombreUser");
+            const nuevoTest=document.createElement("p")
+            nuevoTest.id = `${fnNodeHtml.id}-alert`
+            //switch
+            if(fnNodeHtml.id === "mw_registerNombre"){
+                nuevoTest.textContent = "Escriba un nombre válido"
+            } else if(fnNodeHtml.id === "mw_registerApellido"){
+                nuevoTest.textContent = "Escriba un apellido válido"
+            } else if(fnNodeHtml.id === "mw_registerPais"){
+                nuevoTest.textContent = "Escriba un país válido"
+            } else if(fnNodeHtml.id === "mw_registerCiudad"){
+                nuevoTest.textContent = "Escriba una ciudad válida"
+            } else if(fnNodeHtml.id === "mw_registerCel"){
+                nuevoTest.textContent = "Digite un teléfono válido"
+            } else if(fnNodeHtml.id === "mw_registerMail"){
+                nuevoTest.textContent = "Digite un Email válido"
+            } else if(fnNodeHtml.id === "mw_registerPassword"){
+                nuevoTest.textContent = "Digite una contraseña válida"
+            } else if(fnNodeHtml.id === "mw_registerPasswordConfirm"){
+                nuevoTest.textContent = "Las contraseñas no coinciden"
+            } //Este queda pendiente a revision
+            
+            nuevoTest.style.color = "red";
+            nuevoTest.style.fontSize = "12px";
+            padreParrafoNombre.parentNode.insertBefore(nuevoTest, padreParrafoNombre.nextSibling)
+            
+        }
+    }
+
+    // validacionRegister(mwRegisterNombre)
+    // validacionRegister(mwRegisterApellido)
+    validacionRegister(mwRegisterEmail)
+
+    event.preventDefault();
+
+
+
+});
+
+
