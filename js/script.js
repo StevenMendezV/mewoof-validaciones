@@ -287,6 +287,7 @@ enviarBotonRegister.addEventListener('click', function(event) {
     
 
     function validacionRegister(HTMLElement){
+        console.log(HTMLElement);
         const fnNodeHtml = HTMLElement;
         // let nombreValido = false;
         // let mailValido = false;
@@ -338,31 +339,22 @@ enviarBotonRegister.addEventListener('click', function(event) {
             const registerMail = fnNodeHtml.value.trim();
             const regexMail = /^[\w_]{1,30}(\.?\+?[\w]{5,10})?@[\w]{2,10}\.\w{2,5}$/;
             let mailValido = regexMail.test(registerMail);
-            let parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
-            console.log(fnNodeHtml.id);
-            console.log(parrafoNombreExistencia)
-            console.log(mailValido)
 
             if(!mailValido){
-                alert("llegue")
-                
-                console.log(parrafoNombreExistencia)
+                const parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
                 if(!parrafoNombreExistencia){
                     creacionAlertaRegister();
                 }
-            }else {
+            } else{
+                const parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
                 if(parrafoNombreExistencia != null){
-
-                    alert("llegue else")
-                // const parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
                 const padreParrafoNombre = parrafoNombreExistencia.parentNode;
                 padreParrafoNombre.removeChild(parrafoNombreExistencia);
-                }
-                    
             }
-        }
+            }
+        
  
-         else if(fnNodeHtml.id === "mw_registerPassword"){
+        } else if(fnNodeHtml.id === "mw_registerPassword"){
 
         } else if(fnNodeHtml.id === "mw_registerPasswordConfirm"){
 
@@ -400,11 +392,11 @@ enviarBotonRegister.addEventListener('click', function(event) {
         }
     }
 
-    // validacionRegister(mwRegisterNombre)
+    validacionRegister(mwRegisterNombre);
     // validacionRegister(mwRegisterApellido)
-    validacionRegister(mwRegisterEmail)
+    // validacionRegister(mwRegisterEmail)
 
-    event.preventDefault();
+    // event.preventDefault();
 
 
 
