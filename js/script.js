@@ -272,6 +272,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const enviarBotonRegister = document.getElementById("mw-registerButtonDandoAdopcion");
 
 
+
 enviarBotonRegister.addEventListener('click', function(event) {
     //Declaro las variables que usaremos para validacion
     //Modificar esto porque ya se encuentra en el docuemnto
@@ -283,6 +284,7 @@ enviarBotonRegister.addEventListener('click', function(event) {
     const mwRegisterEmail = document.getElementById("mw_registerMail");
     const mwRegisterPassword = document.getElementById("mw_registerPassword");
     const mwRegisterPasswordConfirm = document.getElementById("mw_registerPasswordConfirm");
+    console.log(mwRegisterNombre);
 
     
 
@@ -393,12 +395,12 @@ enviarBotonRegister.addEventListener('click', function(event) {
     }
 
     validacionRegister(mwRegisterNombre);
-    // validacionRegister(mwRegisterApellido)
+    validacionRegister(mwRegisterApellido)
     // validacionRegister(mwRegisterEmail)
 
     // event.preventDefault();
 
-
+    
 
 });
 
