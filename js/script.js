@@ -338,7 +338,8 @@ enviarBotonRegister.addEventListener('click', function(event) {
             const registerMail = fnNodeHtml.value.trim();
             const regexMail = /^[\w_]{1,30}(\.?\+?[\w]{5,10})?@[\w]{2,10}\.\w{2,5}$/;
             let mailValido = regexMail.test(registerMail);
-            let parrafoNombreExistencia = document.getElementById(`'${fnNodeHtml.id}-alert'`);
+            let parrafoNombreExistencia = document.getElementById(`${fnNodeHtml.id}-alert`);
+            console.log(fnNodeHtml.id);
             console.log(parrafoNombreExistencia)
             console.log(mailValido)
 
